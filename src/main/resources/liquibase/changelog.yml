@@ -1,0 +1,86 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: revanfall
+      changes:
+        - createTable:
+            tableName: currency
+            columns:
+              - column:
+                  name: id
+                  type: integer
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: currency_pk
+                    nullable: false
+              - column:
+                  name: currency_code
+                  type: varchar(4)
+                  constraints:
+                    unique: true
+                    uniqueConstraintName: currency_cc_uq
+                    nullable: false
+
+  - changeSet:
+      id: 2
+      author: revanfall
+      changes:
+        - createTable:
+            tableName: rate
+            columns:
+              - column:
+                  name: id
+                  type: integer
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: rate_pk
+                    nullable: false
+              - column:
+                  name: alias
+                  type: varchar(4)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: rate
+                  type: decimal
+                  constraints:
+                    nullable: false
+              - column:
+                  name: date
+                  type: date
+                  constraints:
+                    nullable: false
+
+  - changeSet:
+      id: 3
+      author: revanfall
+      changes:
+        - insert:
+            catalogName: currency
+            columns:
+              - column:
+                  name: currency_code
+                  value: "USD"
+            dbms: 'postgresql'
+            schemaName: public
+            tableName: currency
+        - insert:
+            catalogName: currency
+            columns:
+              - column:
+                  name: currency_code
+                  value: "EUR"
+            dbms: 'postgresql'
+            schemaName: public
+            tableName: currency
+        - insert:
+            catalogName: currency
+            columns:
+              - column:
+                  name: currency_code
+                  value: "GBP"
+            dbms: 'postgresql'
+            schemaName: public
+            tableName: currency
