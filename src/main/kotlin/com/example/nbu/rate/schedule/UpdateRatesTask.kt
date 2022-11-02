@@ -13,7 +13,7 @@ class UpdateRatesTask {
     @Autowired
     private lateinit var rateService: RateService
 
-    @Scheduled(cron = "0 12  * * *", zone = "Europe/Kiev")
+    @Scheduled(cron = "0 0 12 * * *", zone = "Europe/Kiev")
     fun updateRates(){
         rateService.updateRates()
     }

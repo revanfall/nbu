@@ -19,6 +19,8 @@ class Currency(
     @Column(name="currency_code")
     val currencyCode: String){
 
+    constructor(cc:String):this(0,cc)
+
     override fun toString(): String {
         return "Currency(Id=$Id, currencyCode='$currencyCode')"
     }

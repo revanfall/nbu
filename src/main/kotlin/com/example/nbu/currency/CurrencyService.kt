@@ -10,4 +10,8 @@ class CurrencyService(@Autowired val currencyRepository: CurrencyRepository) {
         return currencyRepository.findAll()
     }
 
+    fun setCurrency(alias: String){
+        currencyRepository.save(Currency(alias.toUpperCase()))
+    }
+
 }
