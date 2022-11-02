@@ -6,12 +6,12 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-@RequestMapping(path = ["api/v1/rates"])
 class RateController(@Autowired val rateService: RateService) {
 
-    @GetMapping
+    @GetMapping("/")
     fun getRates():List<Rate> {
         return rateService.getRates()
     }
+
 
 }
