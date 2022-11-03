@@ -1,0 +1,15 @@
+# get all rates from stored currencies
+GET http://localhost:8080
+
+####
+# http://localhost:8080/{alias} - get currency rate by currency code
+GET http://localhost:8080/usd
+
+####
+# post new currency
+POST http://localhost:8080
+Content-Type: application/json
+
+{
+  "currencyCode":"CNY"
+}
